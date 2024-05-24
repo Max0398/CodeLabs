@@ -1,40 +1,43 @@
+// Alias para una función que no devuelve nada
 typedef VoidFunction = void Function();
 
+// Clase para excepciones con mensajes
 class ExceptionWithMessage {
   final String message;
   const ExceptionWithMessage(this.message);
 }
 
-// Call logException to log an exception, and doneLogging when finished.
+// Interfaz para registrar eventos y excepciones
 abstract class Logger {
-  void logException(Type t, [String? msg]);
-  void doneLogging();
+  void logException(Type t, [String? msg]); // Registra una excepción
+  void doneLogging(); // Indica que el registro ha finalizado
 }
 
+// Función para ejecutar una función potencialmente no confiable y manejar excepciones
 void tryFunction(VoidFunction untrustworthy, Logger logger) {
   try {
-    untrustworthy();
+    untrustworthy(); // Intenta ejecutar la función
   } on ExceptionWithMessage catch (e) {
-    logger.logException(e.runtimeType, e.message);
+    logger.logException(e.runtimeType, e.message); // Registra excepción con mensaje
   } on Exception {
-    logger.logException(Exception);
+    logger.logException(Exception); // Registra cualquier otra excepción
   } finally {
-    logger.doneLogging();
+    logger.doneLogging(); // Indica que el registro ha finalizado
   }
-  
 }
 
+// Implementación simple de un registro personalizado
 class MyLogger extends Logger {
-  Type? lastType;
-  String lastMessage = '';
-  bool done = false;
+  Type? lastType; // Último tipo de excepción registrado
+  String lastMessage = ''; // Último mensaje de excepción registrado
+  bool done = false; // Indica si el registro ha finalizado
 
   void logException(Type t, [String? message]) {
     lastType = t;
-    lastMessage = message ?? lastMessage;
+    lastMessage = message ?? lastMessage; // Actualiza el mensaje si se proporciona uno nuevo
   }
 
-  void doneLogging() => done = true;
+  void doneLogging() => done = true; // Indica que el registro ha finalizado
 }
 
 void main() {

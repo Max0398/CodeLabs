@@ -1,18 +1,23 @@
+// Esta función asincrónica obtiene el rol del usuario y lo devuelve en un formato de cadena.
 Future<String> reportUserRole() async {
-  final username = await fetchRole();
-  return 'User role: $username';
+  final username = await fetchRole(); // Espera a que se obtenga el rol del usuario de forma asíncrona.
+  return 'User role: $username'; // Devuelve una cadena que indica el rol del usuario.
 }
 
+// Esta función asincrónica obtiene el número total de logins y lo devuelve en un formato de cadena.
 Future<String> reportLogins() async {
-  final logins = await fetchLoginAmount();
-  return 'Total number of logins: $logins';
+  final logins = await fetchLoginAmount(); // Espera a que se obtenga el número de logins de forma asíncrona.
+  return 'Total number of logins: $logins'; // Devuelve una cadena que indica el número total de logins.
 }
 
+// Esta función asincrónica simula la obtención del rol del usuario de una fuente externa.
+// Retorna un Future<String> que se completará después de un retraso de medio segundo.
 Future<String> fetchRole() => Future.delayed(_halfSecond, () => _role);
+
+// Esta función asincrónica simula la obtención del número de logins de una fuente externa.
+// Retorna un Future<int> que se completará después de un retraso de medio segundo.
 Future<int> fetchLoginAmount() => Future.delayed(_halfSecond, () => _logins);
 
-// The following code is used to test and provide feedback on your solution.
-// There is no need to read or modify it.
 
 void main() async {
   print('Testing...');

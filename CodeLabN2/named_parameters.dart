@@ -1,23 +1,27 @@
+// Clase para representar un objeto de datos con tres propiedades;
 class MyDataObject {
-  final int anInt;
-  final String aString;
-  final double aDouble;
+  final int anInt; 
+  final String aString; 
+  final double aDouble; 
 
+  // Constructor que permite inicializar las propiedades con valores predeterminados si no se proporcionan
   MyDataObject({
-    this.anInt = 1,
-    this.aString = 'Old!',
-    this.aDouble = 2.0,
+    this.anInt = 1, 
+    this.aString = 'Old!', 
+    this.aDouble = 2.0, 
   });
 
-   MyDataObject copyWith({int? newInt, String? newString, double? newDouble}) {
+  // Método para crear una copia del objeto con nuevas propiedades opcionales proporcionadas
+  MyDataObject copyWith({int? newInt, String? newString, double? newDouble}) {
     return MyDataObject(
+      // Si se proporciona un nuevo valor, se usara; de lo contrario, manténdra el valor actual
       anInt: newInt ?? this.anInt,
       aString: newString ?? this.aString,
       aDouble: newDouble ?? this.aDouble,
     );
-   }
-
+  }
 }
+
 
 void main() {
   final source = MyDataObject();

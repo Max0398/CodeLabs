@@ -1,12 +1,15 @@
+// Clase para almacenar las dos primeras letras de una palabra
 class FirstTwoLetters {
-  final String letterOne;
-  final String letterTwo;
+  final String letterOne; // Primera letra de la palabra
+  final String letterTwo; // Segunda letra de la palabra
 
+  // Constructor que toma una palabra y asigna sus dos primeras letras
   FirstTwoLetters(String word)
-      : assert(word.length >= 2),
-        letterOne = word[0],
-        letterTwo = word[1];
+      : assert(word.length >= 2), // Verifica que la palabra tenga al menos dos letras
+        letterOne = word[0], // Asigna la primera letra de la palabra
+        letterTwo = word[1]; // Asigna la segunda letra de la palabra
 }
+
 
 // Tests your solution (Don't edit!):
 void main() {

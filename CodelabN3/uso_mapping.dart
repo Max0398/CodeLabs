@@ -1,7 +1,10 @@
+// Esta función toma una colección de usuarios y devuelve una colección de cadenas que representan
+// el nombre y la edad de cada usuario.
 Iterable<String> getNameAndAges(Iterable<User> users) {
   return users.map((user) => '${user.name} is ${user.age}');
 }
 
+// Clase que representa un usuario con nombre y edad.
 class User {
   final String name;
   final int age;
@@ -13,11 +16,13 @@ class User {
 }
 
 void main() {
+  // Lista de usuarios de prueba.
   final users = [
     User('Alice', 21),
     User('Bob', 17),
     User('Claire', 52),
   ];
+
 
   try {
     final out = getNameAndAges(users).toList();

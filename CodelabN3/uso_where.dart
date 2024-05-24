@@ -1,11 +1,14 @@
+// Esta función filtra una colección de usuarios y devuelve solo aquellos que tienen 21 años o más.
 Iterable<User> filterOutUnder21(Iterable<User> users) {
   return users.where((user) => user.age >= 21);
 }
 
+// Esta función filtra una colección de usuarios y devuelve solo aquellos cuyos nombres son de 3 caracteres o menos.
 Iterable<User> findShortNamed(Iterable<User> users) {
   return users.where((user) => user.name.length <= 3);
 }
 
+// Clase que representa un usuario con nombre y edad.
 class User {
   final String name;
   final int age;
@@ -17,12 +20,14 @@ class User {
 }
 
 void main() {
+  // Lista de usuarios de prueba.
   final users = [
     User('Alice', 21),
     User('Bob', 17),
     User('Claire', 52),
     User('Dan', 12),
   ];
+
 
   try {
     final out = filterOutUnder21(users);

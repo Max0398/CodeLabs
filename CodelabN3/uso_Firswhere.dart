@@ -1,9 +1,14 @@
-
+// Esta función devuelve el primer elemento en la lista que cumple con las condiciones:
+// comienza con 'M' y contiene 'a'.
 String singleWhere(Iterable<String> items) {
   return items.singleWhere(
-          (element) => element.startsWith('M') && element.contains('a'));
+      // Esta función de flecha se utiliza como predicado dentro de singleWhere.
+// Comprueba si el elemento comienza con 'M' y contiene 'a'.
+      (element) => element.startsWith('M') && element.contains('a'));
 }
-void main(){
+
+void main() {
+  // Lista de elementos de prueba.
   const items = [
     'Salad',
     'Popcorn',
@@ -39,5 +44,4 @@ void main(){
   } catch (e) {
     print('Tried calling singleWhere, but received an exception: $e');
   }
-
 }

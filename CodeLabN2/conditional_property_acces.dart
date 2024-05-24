@@ -1,6 +1,8 @@
+// Función que toma una cadena opcional y devuelve su versión en mayúsculas o null si la cadena original es null
 String? upperCaseIt(String? str) {
-  return str?.toUpperCase();
+  return str?.toUpperCase(); // Si la cadena no es nula, la convierte a mayúsculas; de lo contrario, devuelve null
 }
+
 
 void main() {
   try {

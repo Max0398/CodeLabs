@@ -1,14 +1,27 @@
 
 
 void main(){
-  final aListOfStrings = ['a', 'b', 'c'];
-  final aSetOfInts = {3, 4, 5};
-  final aMapOfStringsToInts = {'myKey': 12};
-  final anEmptyListOfDouble = <double>[];
-  final anEmptySetOfString = <String>{};
-  final anEmptyMapOfDoublesToInts = <double, int>{};
+  // Lista final de cadenas
+final aListOfStrings = ['a', 'b', 'c'];
 
-  final errs = <String>[];
+// Conjunto final de enteros
+final aSetOfInts = {3, 4, 5};
+
+// Mapa final de cadenas a enteros
+final aMapOfStringsToInts = {'myKey': 12};
+
+// Lista final vacía de dobles
+final anEmptyListOfDouble = <double>[];
+
+// Conjunto final vacío de cadenas
+final anEmptySetOfString = <String>{};
+
+// Mapa final vacío de dobles a enteros
+final anEmptyMapOfDoublesToInts = <double, int>{};
+
+// Lista final vacía de cadenas (errores)
+final errs = <String>[];
+
 
   if (aListOfStrings is! List<String>) {
     errs.add('aListOfStrings should have the type List<String>.');

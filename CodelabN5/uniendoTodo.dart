@@ -1,21 +1,32 @@
+// Función que toma un nombre de usuario y devuelve un saludo.
 String addHello(String user) => 'Hello $user';
 
+
+// Función asincrónica que saluda al usuario después de obtener su nombre.
 Future<String> greetUser() async {
+  // Obtiene el nombre de usuario de forma asincrónica.
   final username = await fetchUsername();
+    // Saluda al usuario agregando 'Hello' antes de su nombre.
   return addHello(username);
 }
 
+// Función asincrónica que se despide del usuario
 Future<String> sayGoodbye() async {
   try {
+     // Intenta cerrar la sesión del usuario de forma asincrónica.
     final result = await logoutUser();
+     // Si tiene éxito, devuelve un mensaje de despedida junto con el resultado.
     return '$result Thanks, see you next time';
   } catch (e) {
+      // Si falla, devuelve un mensaje indicando el fallo.
     return 'Failed to logout user: $e';
   }
 }
 
+// Función asincrónica que simula obtener el nombre de usuario.
 Future<String> fetchUsername() => Future.delayed(_halfSecond, () => 'Jean');
 
+// Función asincrónica que simula cerrar la sesión del usuario.
 Future<String> logoutUser() => Future.delayed(_halfSecond, _failOnce);
 
 

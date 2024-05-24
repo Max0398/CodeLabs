@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 
 void main() => runApp(const SignUpApp());
 
+// La aplicación principal que define las rutas
 class SignUpApp extends StatelessWidget {
   const SignUpApp({super.key});
 
@@ -10,13 +11,14 @@ class SignUpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => const SignUpScreen(),
-        '/welcome': (context) => const WelcomeScreen(),
+        '/': (context) => const SignUpScreen(), // Ruta raíz
+        '/welcome': (context) => const WelcomeScreen(), // Ruta de bienvenida
       },
     );
   }
 }
 
+// La pantalla de registro
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -28,7 +30,7 @@ class SignUpScreen extends StatelessWidget {
         child: SizedBox(
           width: 400,
           child: Card(
-            child: SignUpForm(),
+            child: SignUpForm(), // Formulario de registro
           ),
         ),
       ),
@@ -36,6 +38,7 @@ class SignUpScreen extends StatelessWidget {
   }
 }
 
+// La pantalla de bienvenida
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -53,6 +56,7 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
+// El formulario de registro
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
@@ -67,6 +71,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   double _formProgress = 0;
 
+  // Método para actualizar el progreso del formulario
   void _updateFormProgress() {
     var progress = 0.0;
     final controllers = [
@@ -86,6 +91,7 @@ class _SignUpFormState extends State<SignUpForm> {
     });
   }
 
+  // Método para mostrar la pantalla de bienvenida
   void _showWelcomeScreen() {
     Navigator.of(context).pushNamed('/welcome');
   }
@@ -93,11 +99,11 @@ class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      onChanged: _updateFormProgress,
+      onChanged: _updateFormProgress, // Actualiza el progreso del formulario
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AnimatedProgressIndicator(value: _formProgress),
+          AnimatedProgressIndicator(value: _formProgress), // Indicador de progreso animado
           Text('Sign up', style: Theme.of(context).textTheme.headlineMedium),
           Padding(
             padding: const EdgeInsets.all(8),
@@ -125,12 +131,12 @@ class _SignUpFormState extends State<SignUpForm> {
               foregroundColor: MaterialStateProperty.all(
                 _formProgress == 1
                     ? Colors.white
-                    : null, // Deshabilita el color del texto
+                    : null, // Deshabilita el color del texto cuando el formulario está completo
               ),
               backgroundColor: MaterialStateProperty.all(
                 _formProgress == 1
                     ? Colors.blue
-                    : null, // Deshabilita el fondo del botón
+                    : null, // Deshabilita el fondo del botón cuando el formulario está completo
               ),
             ),
             onPressed: _formProgress == 1 ? _showWelcomeScreen : null,
@@ -142,6 +148,7 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 }
 
+// Indicador de progreso animado
 class AnimatedProgressIndicator extends StatefulWidget {
   final double value;
 

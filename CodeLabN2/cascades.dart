@@ -1,22 +1,24 @@
 class BigObject {
-  int anInt = 0;
-  String aString = '';
-  List<double> aList = [];
-  bool _done = false;
+  int anInt = 0; // Entero inicializado en 0
+  String aString = ''; // Cadena inicializada como vacía
+  List<double> aList = []; // Lista de dobles inicializada como vacía
+  bool _done = false; // Estado privado inicializado en falso
 
+  // Método para marcar el objeto como completado
   void allDone() {
     _done = true;
   }
 }
 
+// Función que llena y retorna un objeto BigObject usando el operador de cascada
 BigObject fillBigObject(BigObject obj) {
-  // Create a single statement that will update and return obj:
   return obj
-    ..anInt = 1
-    ..aString = 'String!'
-    ..aList.add(3)
-    ..allDone();
+    ..anInt = 1 // Actualiza anInt a 1
+    ..aString = 'String!' // Actualiza aString
+    ..aList.add(3) // Agrega 3 a la lista
+    ..allDone(); // Llama al método allDone para marcar como completado
 }
+
 
 void main() {
   BigObject obj;

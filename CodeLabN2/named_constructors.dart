@@ -1,15 +1,19 @@
+// Clase para representar un color con componentes rojo, verde y azul
 class Color {
-  int red;
-  int green;
-  int blue;
+  int red; 
+  int green; 
+  int blue; 
 
+  // Constructor para crear un color con los componentes proporcionados
   Color(this.red, this.green, this.blue);
 
+  // Constructor con nombre para crear el color negro (todos los componentes son 0)
   Color.black()
-      : red = 0,
-        green = 0,
-        blue = 0;
+      : red = 0, // Componente rojo es 0
+        green = 0, // Componente verde es 0
+        blue = 0; // Componente azul es 0
 }
+
 
 // Tests your solution (Don't edit!):
 void main() {

@@ -1,10 +1,13 @@
+// Clase Recipe que representa una receta
 class Recipe {
-  final List<String> ingredients;
-  final int calories;
-  final double milligramsOfSodium;
+  final List<String> ingredients; // Lista de ingredientes de la receta
+  final int calories; // Calorías de la receta
+  final double milligramsOfSodium; // Miligramos de sodio de la receta
 
+  // Constructor constante que inicializa los atributos de la receta
   const Recipe(this.ingredients, this.calories, this.milligramsOfSodium);
 }
+
 
 // Tests your solution (Don't edit!):
 void main() {

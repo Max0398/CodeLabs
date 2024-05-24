@@ -1,35 +1,40 @@
+// Clase base para almacenar enteros
 class IntegerHolder {
-  IntegerHolder();
+  IntegerHolder(); // Constructor por defecto
 
+  // Constructor de fábrica para crear instancias basadas en la longitud de la lista
   factory IntegerHolder.fromList(List<int> list) {
     if (list.length == 1) {
-      return IntegerSingle(list[0]);
+      return IntegerSingle(list[0]); // Devuelve una instancia de IntegerSingle
     } else if (list.length == 2) {
-      return IntegerDouble(list[0], list[1]);
+      return IntegerDouble(list[0], list[1]); // Devuelve una instancia de IntegerDouble
     } else if (list.length == 3) {
-      return IntegerTriple(list[0], list[1], list[2]);
+      return IntegerTriple(list[0], list[1], list[2]); // Devuelve una instancia de IntegerTriple
     } else {
-      throw Error();
+      throw Error(); // Lanza un error si la lista no tiene una longitud válida
     }
   }
 }
 
+// Clase para almacenar un solo entero
 class IntegerSingle extends IntegerHolder {
-  final int a;
-  IntegerSingle(this.a);
+  final int a; // Entero único
+  IntegerSingle(this.a); // Constructor que inicializa 'a'
 }
 
+// Clase para almacenar dos enteros
 class IntegerDouble extends IntegerHolder {
-  final int a;
-  final int b;
-  IntegerDouble(this.a, this.b);
+  final int a; // Primer entero
+  final int b; // Segundo entero
+  IntegerDouble(this.a, this.b); // Constructor que inicializa 'a' y 'b'
 }
 
+// Clase para almacenar tres enteros
 class IntegerTriple extends IntegerHolder {
-  final int a;
-  final int b;
-  final int c;
-  IntegerTriple(this.a, this.b, this.c);
+  final int a; // Primer entero
+  final int b; // Segundo entero
+  final int c; // Tercer entero
+  IntegerTriple(this.a, this.b, this.c); // Constructor que inicializa 'a', 'b' y 'c'
 }
 
 // Tests your solution (Don't edit!):

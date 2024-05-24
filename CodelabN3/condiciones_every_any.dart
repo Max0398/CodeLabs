@@ -1,20 +1,25 @@
+// Función para verificar si hay algún usuario menor de 18 años en la lista de usuarios
 bool anyUserUnder18(Iterable<User> users) {
-  return users.any((user) => user.age < 18);
+  return users.any((user) => user.age < 18); // Verifica si algún usuario tiene menos de 18 años
 }
 
+// Función para verificar si todos los usuarios tienen más de 13 años en la lista de usuarios
 bool everyUserOver13(Iterable<User> users) {
-  return users.every((user) => user.age > 13);
+  return users.every((user) => user.age > 13); // Verifica si todos los usuarios tienen más de 13 años
 }
 
+// Clase que representa a un usuario con nombre y edad
 class User {
-  final String name;
-  final int age;
+  final String name; // Nombre del usuario
+  final int age; // Edad del usuario
 
+  // Constructor de la clase User
   User(
-    this.name,
-    this.age,
+    this.name, // Nombre del usuario
+    this.age, // Edad del usuario
   );
 }
+
 
 void main (){
    final users = [

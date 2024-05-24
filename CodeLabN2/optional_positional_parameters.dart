@@ -1,9 +1,10 @@
+// Esta función toma un número variable de argumentos opcionales y los concatena en una cadena, separados por comas.
 String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
   var total = '$a';
-  if (b != null) total = '$total,$b';
-  if (c != null) total = '$total,$c';
-  if (d != null) total = '$total,$d';
-  if (e != null) total = '$total,$e';
+  if (b != null) total = '$total,$b';// Si el argumento 'b' no es nulo, se agrega a la cadena
+  if (c != null) total = '$total,$c';// Si el argumento 'c' no es nulo, se agrega a la cadena
+  if (d != null) total = '$total,$d';// Si el argumento 'd' no es nulo, se agrega a la cadena
+  if (e != null) total = '$total,$e';// Si el argumento 'e' no es nulo, se agrega a la cadena
   return total;
 }
 

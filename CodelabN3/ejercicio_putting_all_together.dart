@@ -1,31 +1,39 @@
+// Esta función toma una colección de cadenas y las convierte en direcciones de correo electrónico.
 Iterable<EmailAddress> parseEmailAddresses(Iterable<String> strings) {
   return strings.map((s) => EmailAddress(s));
 }
 
+// Esta función verifica si hay alguna dirección de correo electrónico no válida en la colección.
 bool anyInvalidEmailAddress(Iterable<EmailAddress> emails) {
   return emails.any((email) => !isValidEmailAddress(email));
 }
 
+// Esta función filtra y devuelve solo las direcciones de correo electrónico válidas de la colección.
 Iterable<EmailAddress> validEmailAddresses(Iterable<EmailAddress> emails) {
   return emails.where((email) => isValidEmailAddress(email));
 }
 
+// Clase que representa una dirección de correo electrónico.
 class EmailAddress {
   final String address;
 
   EmailAddress(this.address);
 
+  // Sobrescribe el operador '==' para comparar dos direcciones de correo electrónico.
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is EmailAddress && address == other.address;
 
+  // Genera un hash basado en la dirección de correo electrónico para la comparación en colecciones.
   @override
   int get hashCode => address.hashCode;
 
+  // Devuelve una representación de cadena de la dirección de correo electrónico.
   @override
   String toString() => 'EmailAddress{address: $address}';
 }
+
 
 void main() {
   const input = [
@@ -56,6 +64,7 @@ void main() {
       );
       return;
     }
+    // Verifica si las direcciones de correo electrónico analizadas son las esperadas.
     if (!_listEquals(emails.toList(), [
       EmailAddress('ali@gmail.com'),
       EmailAddress('bobgmail.com'),

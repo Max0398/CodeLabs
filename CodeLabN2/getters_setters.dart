@@ -1,17 +1,22 @@
+// Clase para representar una excepción de precio inválido
 class InvalidPriceException {}
 
+// Clase ShoppingCart para gestionar un carrito de compras
 class ShoppingCart {
-  List<double> _prices = [];
-  double get total => _prices.fold(0, (e, t) => e + t);
+  List<double> _prices = []; // Lista de precios
+  double get total => _prices.fold(0, (e, t) => e + t); // Calcula el total de los precios
 
+  // Setter para actualizar los precios del carrito
   set prices(List<double> value) {
+    // Verifica si algún precio es negativo
     if (value.any((p) => p < 0)) {
-      throw InvalidPriceException();
+      throw InvalidPriceException(); // Lanza una excepción si hay precios negativos
     }
 
-    _prices = value;
+    _prices = value; // Actualiza la lista de precios
   }
 }
+
 
 void main() {
   var foundException = false;
